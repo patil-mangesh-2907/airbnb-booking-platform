@@ -41,6 +41,7 @@ public class Payment {
     private PaymentMethod paymentMethod;
 
     @CreationTimestamp
+    @Column(updatable = false)
     private LocalDateTime createdAt;
 
     @UpdateTimestamp

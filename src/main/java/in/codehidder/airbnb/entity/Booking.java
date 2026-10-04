@@ -51,6 +51,7 @@ public class Booking {
     private BookingStatus status;
 
     @CreationTimestamp
+    @Column(updatable = false)
     private LocalDateTime createdAt;
 
     @UpdateTimestamp

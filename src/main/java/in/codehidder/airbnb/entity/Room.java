@@ -53,6 +53,7 @@ public class Room {
     private Boolean deleted = false;
 
     @CreationTimestamp
+    @Column(updatable = false)
     private LocalDateTime createdAt;
 
     @UpdateTimestamp

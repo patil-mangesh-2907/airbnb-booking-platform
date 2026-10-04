@@ -60,6 +60,7 @@ public class Inventory {
     private Boolean isClosed = false;
 
     @CreationTimestamp
+    @Column(updatable = false)
     private LocalDateTime createdAt;
 
     @UpdateTimestamp

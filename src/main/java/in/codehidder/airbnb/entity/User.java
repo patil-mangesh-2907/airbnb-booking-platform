@@ -48,6 +48,7 @@ public class User {
     private Set<Role> roles = new HashSet<>();
 
     @CreationTimestamp
+    @Column(updatable = false)
     private LocalDateTime createdAt;
 
     @UpdateTimestamp

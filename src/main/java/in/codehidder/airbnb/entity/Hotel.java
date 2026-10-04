@@ -9,6 +9,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.type.SqlTypes;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -34,6 +36,9 @@ public class Hotel {
     @Column(nullable = false, length = 255)
     private String location;
 
+    @Embedded
+    private ContactDetails contactDetails;
+
     @JdbcTypeCode(SqlTypes.ARRAY)
     @Column(columnDefinition = "TEXT[]")
     private String[] amenities;
@@ -43,19 +48,22 @@ public class Hotel {
     private String[] photos;
 
     @Column(nullable = false)
-    private Boolean active = true;
+    private Boolean active = false;
 
     @Column(nullable = false)
     private Boolean deleted = false;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(
-            name = "owner_id",
-            nullable = false
+            name = "owner_id"
     )
     private User owner;
 
+    @OneToMany(mappedBy = "hotel")
+    private List<Room> rooms = new ArrayList<>();
+
     @CreationTimestamp
+    @Column(updatable = false)
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
