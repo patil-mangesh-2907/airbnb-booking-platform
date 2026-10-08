@@ -19,7 +19,5 @@ public interface HotelRepository extends JpaRepository<Hotel, Long> {
 
     Optional<Hotel> findById(Long hotelId);
 
-    List<Room> findHotel_RoomsAndDeletedFalse();
-
     boolean existsById(Long hotelId);
 }

@@ -23,7 +23,7 @@ public class RoomResponse {
 
     private Integer capacity;
 
-    private BigDecimal pricePerNight;
+    private BigDecimal basePrice;
 
     private String[] amenities;
 

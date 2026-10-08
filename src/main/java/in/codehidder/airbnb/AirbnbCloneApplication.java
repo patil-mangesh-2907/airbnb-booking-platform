@@ -9,5 +9,4 @@ public class AirbnbCloneApplication {
     public static void main(String[] args) {
         SpringApplication.run(AirbnbCloneApplication.class, args);
     }
-
 }

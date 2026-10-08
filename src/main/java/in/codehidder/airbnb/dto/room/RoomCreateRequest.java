@@ -16,8 +16,11 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RoomCreateRequest {
+    @NotBlank(message = "Room name is required")
+    private String name;
+
     @NotBlank(message = "Room type is required")
-    private String roomType;
+    private String type;
 
     @NotBlank(message = "Room description is required")
     private String description;
@@ -26,9 +29,13 @@ public class RoomCreateRequest {
     @Positive(message = "Room capacity must be greater than 0")
     private Integer capacity;
 
-    @NotNull(message = "Price per night is required")
-    @Positive(message = "Price per night must be greater than 0")
-    private BigDecimal pricePerNight;
+    @NotNull(message = "Total rooms is required")
+    @Positive(message = "Total rooms must be greater than 0")
+    private Integer totalRooms;
+
+    @NotNull(message = "Base price is required")
+    @Positive(message = "Base price must be greater than 0")
+    private BigDecimal basePrice;
 
     @NotEmpty(message = "At least one amenity is required")
     private String[] amenities;

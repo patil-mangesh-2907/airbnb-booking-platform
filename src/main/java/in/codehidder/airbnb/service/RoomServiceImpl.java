@@ -48,7 +48,7 @@ public class RoomServiceImpl implements RoomService {
         Hotel hotel = hotelRepository.findByIdAndDeletedFalse(hotelId)
                 .orElseThrow(() -> new HotelNotFoundException("Hotel with id: " + hotelId + " not found"));
 
-        List<Room> rooms = roomRepository.findByHotelAndDeletedFalse(hotelId);
+        List<Room> rooms = roomRepository.findByHotelIdAndDeletedFalse(hotelId);
 
         return rooms.stream()
                 .map(room -> modelMapper.map(room, RoomResponse.class))
